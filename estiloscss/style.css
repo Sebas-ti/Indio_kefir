@@ -1,0 +1,207 @@
+/* Definición de colores de la marca */
+:root {
+    --brand-purple: #6A4C93; /* Morado principal */
+    --brand-yellow: #FFD166; /* Amarillo/Dorado */
+    --brand-text: #FFFFFF;    /* Texto blanco para contraste */
+    --brand-hover-yellow: #FFB703; /* Amarillo más oscuro para hover */
+    --brand-dropdown-item-hover-bg: var(--brand-yellow);
+    --brand-dropdown-item-hover-text: var(--brand-purple);
+    --brand-light-bg: #F8F9FA; /* Un fondo claro para secciones */
+    --brand-text-dark: #343A40; /* Texto oscuro para contraste en fondos claros */
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    padding-top: 70px; /* Ajuste para navbar fija, debe coincidir o ser mayor que la altura de la navbar */
+    background-color: var(--brand-light-bg);
+}
+
+.navbar-brand-custom {
+    color: var(--brand-yellow) !important;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    text-decoration: none; /* Quita el subrayado */
+}
+.navbar-brand-custom:hover {
+    text-decoration: none; /* Quita el subrayado también en hover */
+    color: var(--brand-hover-yellow) !important;
+}
+.navbar-brand-custom img {
+    max-height: 40px;
+    margin-right: 10px;
+    border-radius: 0.25rem;
+}
+
+.navbar-custom {
+    background-color: var(--brand-purple);
+    transition: box-shadow 0.3s ease-in-out;
+    min-height: 70px; /* Altura mínima de la navbar */
+}
+
+.navbar-custom .nav-link {
+    color: var(--brand-text);
+    padding: 0.5rem 1rem;
+    border-radius: 0.375rem;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.navbar-custom .nav-link:hover,
+.navbar-custom .nav-link.active,
+.navbar-custom .nav-item.show .nav-link {
+    background-color: var(--brand-hover-yellow);
+    color: var(--brand-purple) !important;
+}
+
+.navbar-custom .dropdown-menu {
+    background-color: var(--brand-purple);
+    border: 1px solid var(--brand-yellow);
+    border-radius: 0.375rem;
+    margin-top: 0.5rem;
+}
+
+.navbar-custom .dropdown-item {
+    color: var(--brand-text);
+    padding: 0.75rem 1.5rem;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.navbar-custom .dropdown-item:hover {
+    background-color: var(--brand-dropdown-item-hover-bg);
+    color: var(--brand-dropdown-item-hover-text) !important;
+}
+
+.navbar-custom .social-icon {
+    color: var(--brand-text);
+    transition: color 0.3s ease;
+    font-size: 1.3rem;
+    padding: 0.5rem;
+}
+
+.navbar-custom .social-icon:hover {
+    color: var(--brand-yellow);
+}
+
+.navbar-toggler {
+    border-color: rgba(255, 209, 102, 0.7); /* Borde del toggler más acorde al amarillo */
+}
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 209, 102, 1%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+.navbar-scrolled {
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilos para la nueva sección "Hero" */
+.hero-section {
+    padding: 4rem 0;
+    background-color: #ffffff; /* Fondo blanco para esta sección */
+}
+
+/* Puedes quitar estos bordes y fondos de depuración ahora que el carrusel se ve */
+.hero-section .hero-image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    /* border: 2px dashed red; */
+    /* background-color: rgba(255, 0, 0, 0.1); */
+}
+
+/* --- ESTILOS PARA EL CARRUSEL LATERAL (SIMPLIFICADOS) --- */
+#carouselExampleIndicators {
+    position: relative;
+    overflow: hidden;
+    height: 400px; /* Mantén la altura para que el carrusel tenga un tamaño fijo */
+    width: 100%;
+    /* border: 2px solid blue; */
+    /* background-color: rgba(0, 0, 255, 0.1); */
+}
+
+.carousel-inner {
+    /* Bootstrap maneja las transiciones aquí por defecto */
+    height: 100%; /* Asegura que el inner ocupe toda la altura del carrusel */
+    /* border: 2px solid green; */
+    /* background-color: rgba(0, 255, 0, 0.1); */
+}
+
+.carousel-item {
+    /* Bootstrap ya maneja la posición y visibilidad para el deslizamiento lateral */
+    /* Podemos quitar la mayoría de las reglas de `position: absolute` y `opacity` manuales */
+    height: 100%; /* Asegura que el item ocupe toda la altura */
+    /* Las reglas de `opacity` y `transform` serán gestionadas por Bootstrap por defecto */
+    /* Por lo tanto, eliminamos: opacity: 0;, transform: translateY(0);, transition: none; */
+}
+
+.carousel-item.active {
+    /* También eliminamos reglas específicas para .active si ya no son necesarias */
+    /* La visibilidad y posición las manejará Bootstrap */
+    /* Eliminamos: opacity: 1; transform: translateY(0); transition: none; */
+}
+
+/* Eliminamos todas las anulaciones de las clases de transición de Bootstrap */
+/* porque ahora queremos que Bootstrap las use para el deslizamiento horizontal */
+/* .carousel-item-next,
+.carousel-item-prev,
+.carousel-item.carousel-item-start,
+.carousel-item.carousel-item-end {
+    transform: none !important;
+    opacity: 0 !important;
+    transition: none !important;
+} */
+
+
+.carousel-item img {
+    width: 100%;
+    height: 100%; /* Las imágenes deben ocupar el 100% de la altura de su carousel-item */
+    object-fit: cover;
+    border-radius: 0.75rem;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    /* Mantén estas para que las imágenes no "crezcan" por otras reglas */
+    transition: none !important;
+    transform: none !important;
+}
+/* --- FIN ESTILOS PARA EL CARRUSEL LATERAL --- */
+
+
+.hero-section .hero-text-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start; /* Alinea a la izquierda por defecto */
+    height: 100%;
+    padding: 1rem;
+}
+
+@media (max-width: 991.98px) { /* En pantallas md y menores, centrar texto */
+     .hero-section .hero-text-container {
+         align-items: center;
+         text-align: center;
+     }
+}
+
+.hero-section .hero-title {
+    font-size: 2.25rem; /* Tamaño del título */
+    font-weight: bold;
+    color: var(--brand-purple);
+    margin-bottom: 1.5rem;
+}
+
+.hero-section .btn-pedir {
+    background-color: var(--brand-yellow);
+    color: var(--brand-purple);
+    font-weight: bold;
+    padding: 0.75rem 2rem;
+    border-radius: 50px; /* Botón más redondeado */
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    border: 2px solid var(--brand-yellow);
+}
+
+.hero-section .btn-pedir:hover {
+    background-color: var(--brand-hover-yellow);
+    color: var(--brand-purple);
+    border-color: var(--brand-hover-yellow);
+}
